@@ -40,6 +40,11 @@ static const BCM283XInfo bcm283x_socs[] = {
         .cpu_type = ARM_CPU_TYPE_NAME("cortex-a53"),
         .clusterid = 0x0,
     },
+    {
+        .name = TYPE_BCM2711,
+        .cpu_type = ARM_CPU_TYPE_NAME("cortex-a72"),
+        .clusterid = 0x0,
+    },
 #endif
 };
 

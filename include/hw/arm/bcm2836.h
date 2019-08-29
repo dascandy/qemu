@@ -26,6 +26,7 @@
  */
 #define TYPE_BCM2836 "bcm2836"
 #define TYPE_BCM2837 "bcm2837"
+#define TYPE_BCM2711 "bcm2711"
 
 typedef struct BCM283XState {
     /*< private >*/

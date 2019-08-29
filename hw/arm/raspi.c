@@ -175,14 +175,15 @@ static void raspi_init(MachineState *machine, int version)
     BusState *bus;
     DeviceState *carddev;
 
-    if (machine->ram_size > 1 * GiB) {
+    if (machine->ram_size > 1 * GiB ||
+        (version == 4 && machine->ram_size > 4 * GiB)) {
         error_report("Requested ram size is too large for this machine: "
-                     "maximum is 1GB");
+                     "maximum is 1GB (4GB for version 4)");
         exit(1);
     }
 
     object_initialize_child(OBJECT(machine), "soc", &s->soc, sizeof(s->soc),
-                            version == 3 ? TYPE_BCM2837 : TYPE_BCM2836,
+                            version == 4 ? TYPE_BCM2711 : version == 3 ? TYPE_BCM2837 : TYPE_BCM2836,
                             &error_abort, NULL);
 
     /* Allocate and map RAM */
